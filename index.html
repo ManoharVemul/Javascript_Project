@@ -7,86 +7,212 @@
    
     <link rel="shortcut icon" href="./mfavcon.png" type="image/x-icon">
 
+
+
+<style>
+h1{
+    color: rgb(165, 9, 142);
+}
+h2{
+    color: rgb(255, 153, 0);
+}
+
+
+body{
+    text-align: center;
+    padding-top: 100px;
+
+
+}
+
+.canvart{
+    background-color: greenyellow;
+    border-radius: 18px;
+    height: 150px;
+  
+
+}
+input{
+   height:30px;
+   border-radius: 10px;
+font-size: large;
+
+}
+option{
+    height:30px;
+   border-radius: 10px;
+font-size: large;
+}
+select{
+    height:30px;
+   border-radius: 10px;
+font-size: large;
+}
+button{
+    height:30px;
+   border-radius: 10px;
+font-size: large;
+color: rgb(255, 0, 195);
+}
+
+</style>
+
+
 </head>
 <body>
-
+<h1>All in One Converter</h1>
 <form action="">
 
 <!-- selection here  -->
+
+<h2>Select here</h2>
 <select name="" id="" class="">
-    <option value="">--select--</option>
-    <option value="">Length</option>
-    <option value="">Weight</option> 
-    <option value="">Tempature</option>
-    <option value="">Area</option>
-    <option value="">Time</option>
+    <option  value="">--select--</option>
+    <option class="selection" value="">Length</option>
+    <option class="selection"  value="">Weight</option> 
+    <option class="selection"  value="">Tempature</option>
+    <option class="selection"  value="">Area</option>
+    <option  class="selection" value="">Time</option>
 </select>
 
 
 <!-- length here  -->
+<div id="length" class="canvart" style="display: none;">
 
 
+    <h2>Length</h2>
+<input type="number" name="" id="" placeholder="Enter Value">
 <select name="" id="" class="">
-    <option value="">--select--</option>
-    <option value="">Length</option>
-    <option value="">Weight</option> 
-    <option value="">Tempature</option>
-    <option value="">Area</option>
-    <option value="">Time</option>
+    <option value="">KiloMeter</option>
+    <option value="">Meter</option></select>
+
+    <select name="" id="" class="">
+    <option value="">KiloMeter</option> 
+    <option value="">Meter</option>
+ 
 </select>
+<button type="button">Convert</button>
+<div class = "result">
+<p>Result will be displayed here</p>
+</div>
+
+</div>
 
 <!-- weight here  -->
 
+
+<div id="weight" class="canvart" style="display: none;">
+ <h2>Weight</h2>
+<input type="number" name="" id="" placeholder="Enter Value">
 <select name="" id="" class="">
-    <option value="">--select--</option>
-    <option value="">Length</option>
-    <option value="">Weight</option> 
-    <option value="">Tempature</option>
-    <option value="">Area</option>
-    <option value="">Time</option>
+    <option value="">KiloGram</option>
+    <option value="">Gram</option></select>
+
+    <select name="" id="" class="">
+    <option value="">KiloGram</option> 
+    <option value="">Gram</option>
+ 
 </select>
+<button type="button">Convert</button>
+<div class = "result">
+<p>Result will be displayed here</p>
+</div>
+
+</div>
 
 <!-- temparature here  -->
 
+<div id="temparature" class="canvart"  style="display: none;">
+<h2>Temparature</h2>
+<input type="number" name="" id="" placeholder="Enter Value">
 <select name="" id="" class="">
-    <option value="">--select--</option>
-    <option value="">Length</option>
-    <option value="">Weight</option> 
-    <option value="">Tempature</option>
-    <option value="">Area</option>
-    <option value="">Time</option>
-</select>
+    <option value="">Celsius</option>
+    <option value="">Kelvin</option>
+    <option value="">Fahrenheit </option></select>
 
+    <select name="" id="" class="">
+        <option value="">Celsius</option>
+        <option value="">Kelvin</option>
+        <option value="">Fahrenheit </option></select>
+</select>
+<button type="button">Convert</button>
+<div class = "result">
+<p>Result will be displayed here</p>
+</div>
+
+</div>
 
 <!-- area here  -->
 
-<select name="" id="" class="">
-    <option value="">--select--</option>
-    <option value="">Length</option>
-    <option value="">Weight</option> 
-    <option value="">Tempature</option>
-    <option value="">Area</option>
-    <option value="">Time</option>
-</select>
-
+<div id="area" class="canvart"  style="display: none;">
+    <h2>Area</h2>
+   <input type="number" name="" id="" placeholder="Enter Value">
+   <select name="" id="" class="">
+       <option value="">Squrekilometer</option>
+       <option value="">squaremeter</option></select>
+   
+       <select name="" id="" class="">
+        <option value="">Squrekilometer</option>
+        <option value="">squaremeter</option></select>
+ 
+   <button type="button">Convert</button>
+   <div class = "result">
+   <p>Result will be displayed here</p>
+   </div>
+   
+   </div>
 
 <!-- time here  -->
 
-<select name="" id="" class="">
-    <option value="">--select--</option>
-    <option value="">Length</option>
-    <option value="">Weight</option> 
-    <option value="">Tempature</option>
-    <option value="">Area</option>
-    <option value="">Time</option>
-</select>
 
-
-
+<div id="time" class="canvart"  style="display: none;">
+    <h2>Time</h2>
+   <input type="number" name="" id="" placeholder="Enter Value">
+   <select name="" id="" class="">
+       <option value="">Minites</option>
+       <option value="">Seconds</option></select>
+   
+       <select name="" id="" class="">
+        <option value="">Minites</option>
+        <option value="">Seconds</option></select>
+  
+   <button type="button">Convert</button>
+   <div class = "result">
+   <p>Result will be displayed here</p>
+   </div>
+   
+   </div>
 
 </form>
 
 <script>
+
+let length = document.getElementById("length");
+
+let weight = document.getElementById("weight");
+
+let temparature = document.getElementById("temparature");
+
+let area = document.getElementById("area");
+
+let time = document.getElementById("time");
+
+let secOpn= document.getElementsByClassName("selection");
+
+// secOpn[0].addEventListener("click",function(){
+//     length.style.display="block"
+// })
+//  length.style.display="block"
+
+// console.log(secOpn[0]);
+
+document.addEventListener("DOMContentLoaded", function() {
+    secOpn[0].addEventListener("click", function() {
+        length.style.display = "block";
+    });
+});
+
+
 
 
 </script>
