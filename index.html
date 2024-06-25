@@ -3,12 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unit_Converter</title>
-   
+    <title>Unit_Converter</title> 
     <link rel="shortcut icon" href="./mfavcon.png" type="image/x-icon">
-
-
-
 <style>
 h1{
     color: rgb(165, 9, 142);
@@ -21,7 +17,7 @@ h2{
 body{
     text-align: center;
     padding-top: 100px;
-
+background-image: linear-gradient(rgb(235, 104, 235, 0.5),#ff7eb6,pink);
 
 }
 
@@ -66,15 +62,15 @@ color: rgb(255, 0, 195);
 <!-- selection here  -->
 
 <h2>Select here</h2>
-<select name="" id="" class="">
+<select name="" id="chosen_option" class="">
     <option  value="">--select--</option>
-    <option class="selection" value="">Length</option>
-    <option class="selection"  value="">Weight</option> 
-    <option class="selection"  value="">Tempature</option>
-    <option class="selection"  value="">Area</option>
-    <option  class="selection" value="">Time</option>
+    <option class="selection" value="length" onclick=podavu()>Length</option>
+    <option class="selection"  value="weight">Weight</option> 
+    <option class="selection"  value="temparature">Tempature</option>
+    <option class="selection"  value="area">Area</option>
+    <option  class="selection" value="time">Time</option>
 </select>
-
+<button id ="selected">Select</button>
 
 <!-- length here  -->
 <div id="length" class="canvart" style="display: none;">
@@ -186,8 +182,9 @@ color: rgb(255, 0, 195);
 </form>
 
 <script>
-
+let select=document.getElementById("chosen_option")
 let length = document.getElementById("length");
+// console.log(length)
 
 let weight = document.getElementById("weight");
 
@@ -199,22 +196,88 @@ let time = document.getElementById("time");
 
 let secOpn= document.getElementsByClassName("selection");
 
-// secOpn[0].addEventListener("click",function(){
+console.log(select.value
+
+)
+let dd= secOpn[0]
+console.log(dd)
+// dd.addEventListener("onchange",function(event){
+//     let length = document.getElementById("length");
 //     length.style.display="block"
+//     event.target.value
 // })
+
 //  length.style.display="block"
 
 // console.log(secOpn[0]);
 
-document.addEventListener("DOMContentLoaded", function() {
-    secOpn[0].addEventListener("click", function() {
-        length.style.display = "block";
-    });
-});
+// document.addEventListener("DOMContentLoaded", function() {
+//     secOpn[0].addEventListener("click", function() {
+//         length.style.display = "block";
+//     });
+// });
 
 
 
 
+// function podavu(){
+//     let length = document.getElementById("length");
+//     length.style.display="block"
+//     event.target.value
+// }
+let selected= document.getElementById("selected")
+console.log(selected)
+selected.addEventListener("click",function (event) {
+    let seg = document.getElementById("chosen_option")
+    console.log(seg.value)
+    event.preventDefault()
+    if(seg.value==="length"){
+      length.style.display="block";
+            weight.style.display="none";
+            temparature.style.display="none";
+            area.style.display="none";
+            time.style.display="none";
+       
+    } else if(seg.value==="weight"){
+        
+      weight.style.display="block"
+
+      length.style.display="none"
+          temparature.style.display="none"
+           area.style.display="none"
+            time.style.display="none"
+            
+    } else if(seg.value==="temparature"){
+         
+        temparature.style.display="block"
+          length.style.display="none"
+          weight.style.display="none"
+           area.style.display="none"
+            time.style.display="none"
+    }else if(seg.value==="area"){
+         
+      area.style.display="block"
+      length.style.display="none"
+          weight.style.display="none"
+           temparature.style.display="none"
+            time.style.display="none"
+
+
+    } else if(seg.value==="time"){
+          
+      time.style.display="block"
+
+      length.style.display="none"
+          weight.style.display="none"
+           area.style.display="none"
+            temparature.style.display="none"
+    } else {
+     let message = document.createElement("p");
+     message.style.color="red"
+     message.style.fontSize="20px"
+     document.body.append(message);
+    }     
+})
 </script>
 
 
