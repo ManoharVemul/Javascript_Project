@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>currency_converter</title>
+
+    <style>
+body{
+    margin-top: 10%;
+    text-align: center;
+    font-size: large;
+}
+input{
+    font-size: large;
+    border-radius: 5px;
+}
+button{
+    color: rgb(183, 19, 205);
+    border-radius: 5px;
+}
+option{
+    color: rgb(183, 19, 205);
+    border-radius: 5px;
+    font-size: large;
+}
+    </style>
+</head>
+<body>
+ 
+<form action="">
+
+<input type="number" id="inputAmu">
+
+<select name="" id="grup1">
+
+    <option value="">--SELECT--</option>
+  
+</select>
+
+<select name="" id="grup2">
+
+    <option value="">--SELECT--</option>
+ 
+    </select>
+    
+
+<button  id = "conversion"> Convert</button>
+<br><br>
+
+<p id="resalutu"> result here </p>
+
+
+</form>
+
+<script>
+
+const api = "https://api.exchangerate-api.com/v4/latest/USD";
+
+let dam=fetch(api)
+let aa =dam.then(response=>{
+    if(response.ok){
+        return response.json()
+    }else{
+        "reason :  "+response.statusText; 
+    }
+})
+let ratesu = aa.then(data=>{
+
+    let inputAmu =document.getElementById("inputAmu")
+
+let group1 = document.getElementById("grup1");
+let group2 = document.getElementById("grup2");
+
+let btn = document.getElementById("conversion")
+
+// DROP DOWN 1--->
+
+for (i in data.rates){
+    
+    let secOpn = document.createElement("option")
+    secOpn.value=i
+    secOpn.innerText=i
+    group1.append(secOpn)
+
+}
+
+// DROP DOWN 2--->
+
+for (j in data.rates){
+    
+    let secOpn = document.createElement("option")
+    secOpn.value=j
+    secOpn.innerText=j
+    group2.append(secOpn)
+}
+
+btn.addEventListener("click",function(event){
+    event.preventDefault();
+
+let resulted = document.getElementById("resalutu");
+
+resulted.innerText = Number(inputAmu.value*(data.rates[group2.value]/data.rates[group1.value]));
+
+    inputAmu.value=""
+})
+    
+})
+
+aa.catch(error=>console.log(error))
+
+
+</script>
+
+<img src="C:\Users\MANOHAR\OneDrive\Desktop\mycode\MEDIA AND PICS\grid-workshop.jpg" alt="">
+</body>
+</html>

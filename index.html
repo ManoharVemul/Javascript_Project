@@ -17,12 +17,13 @@ h2{
 body{
     text-align: center;
     padding-top: 100px;
-background-image: url("../../../../../Downloads/bg_img.jpg");
+    background-color: #37B7C3;
+/* background-image: url("../../../../../Downloads/bg_img.jpg"); */
 
 }
 
 .canvart{
-    background-color: greenyellow;
+    background-color: #071952;
     border-radius: 18px;
     height: 150px;
   
@@ -51,9 +52,9 @@ font-size: large;
 color: rgb(255, 0, 195);
 }
 P{
-    background-color: forestgreen;
-    width: 80%;
-    margin-left: 45%;
+    background-color: #088395;
+    width: 50%;
+    margin-left: 32%;
     text-align: center;
     height:30px;
    border-radius: 10px;
@@ -73,7 +74,7 @@ color: rgb(255, 0, 195);
 <h2>Select here</h2>
 <select name="" id="chosen_option" class="">
     <option  value="">--select--</option>
-    <option class="selection" value="length" onclick=podavu()>Length</option>
+    <option class="selection" value="length" >Length</option>
     <option class="selection"  value="weight">Weight</option> 
     <option class="selection"  value="temparature">Tempature</option>
     <option class="selection"  value="area">Area</option>
@@ -254,7 +255,14 @@ selected.addEventListener("click",function (event) {
      let message = document.createElement("p");
      message.style.color="red"
      message.style.fontSize="20px"
+     message.innerText="please select option"
      document.body.append(message);
+
+     length.style.display="none"
+          weight.style.display="none"
+           area.style.display="none"
+            temparature.style.display="none"
+            time.style.display="none"
     }     
 });
 
@@ -272,7 +280,7 @@ let result = document.getElementById("resLength");
 
 if(secLength=="KiloMeter"&&secLength2=="Meter"){
     result.innerText=inputLength*1000
-//inputLength*1000
+
 } else if (secLength=="Meter"&&secLength2=="KiloMeter"){
     result.innerText=inputLength/1000
 }
@@ -281,9 +289,6 @@ if(secLength=="KiloMeter"&&secLength2=="Meter"){
 }
 }
 )
-
-
-
 
 //  weight functionality
 
@@ -294,7 +299,7 @@ let inputWeight = document.getElementById("inputWeight").value;
 let secWeight=document.getElementById("secWeight").value;
 let secWeight2=document.getElementById("secWeight2").value;
 let resultWeight = document.getElementById("resWeight");
-
+console.log(inputWeight)
 
 if(secWeight=="KiloGram"&&secWeight2=="Gram"){
     resultWeight.innerText=inputWeight*1000
@@ -319,6 +324,9 @@ let resultTempu = document.getElementById("resTempu");
 
 
 
+
+inputTempu=Number(inputTempu)
+
 if(secTempu=="Celsius" && secTempu2=="Kelvin"){
     resultTempu.innerText = inputTempu +273.15
 
@@ -340,6 +348,7 @@ if(secTempu=="Celsius" && secTempu2=="Kelvin"){
 }
 }
 )
+
 
 // area  functionality
 
@@ -363,7 +372,6 @@ if(secArea=="Squarekilometer" && secArea2=="Squaremeter"){
 }
 }
 )
-
 
 // time  functionality
 
@@ -393,6 +401,6 @@ if(secTime=="Minites"&&secTime2=="Seconds"){
 
 </script>
 
-
+<a href="http://127.0.0.1:3003/currency-converter.html">Currency-Converter(Premium)</a>
 </body>
 </html>
