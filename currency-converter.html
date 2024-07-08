@@ -12,17 +12,23 @@ body{
     font-size: large;
 }
 input{
-    font-size: large;
+    font-size: 20px;
     border-radius: 5px;
+
 }
 button{
     color: rgb(183, 19, 205);
     border-radius: 5px;
+    font-size: 20px;
 }
 option{
     color: rgb(183, 19, 205);
-    border-radius: 5px;
-    font-size: large;
+    border-radius: 15px;
+    font-size: 20px;
+}
+select{
+    border-radius: 15px;
+    font-size: 20px;
 }
     </style>
 </head>
@@ -34,13 +40,13 @@ option{
 
 <select name="" id="grup1">
 
-    <option value="">--SELECT--</option>
+    <option value="se">--SELECT--</option>
   
 </select>
 
 <select name="" id="grup2">
 
-    <option value="">--SELECT--</option>
+    <option value="se">--SELECT--</option>
  
     </select>
     
@@ -97,12 +103,28 @@ for (j in data.rates){
 
 btn.addEventListener("click",function(event){
     event.preventDefault();
-
-let resulted = document.getElementById("resalutu");
-
+    let resulted = document.getElementById("resalutu");
+if(inputAmu.value){
+if(data.rates[group2.value]!=data.rates[group1.value]){
 resulted.innerText = Number(inputAmu.value*(data.rates[group2.value]/data.rates[group1.value]));
+ resulted.style.color="green"
+ resulted.style.fontSize="40px"
+inputAmu.value="";
+}else{
+ resulted.innerText="please select any one";
+    resulted.style.color="red"
+}
 
-    inputAmu.value=""
+
+
+}else{
+    resulted.innerText="please enter value";
+    resulted.style.color="red"
+
+}
+
+
+
 })
     
 })
@@ -111,7 +133,5 @@ aa.catch(error=>console.log(error))
 
 
 </script>
-
-<img src="C:\Users\MANOHAR\OneDrive\Desktop\mycode\MEDIA AND PICS\grid-workshop.jpg" alt="">
 </body>
 </html>

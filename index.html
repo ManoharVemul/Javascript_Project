@@ -12,16 +12,11 @@ h1{
 h2{
     color: rgb(255, 153, 0);
 }
-
-
 body{
     text-align: center;
     padding-top: 100px;
     background-color: #37B7C3;
-/* background-image: url("../../../../../Downloads/bg_img.jpg"); */
-
 }
-
 .canvart{
     background-color: #071952;
     border-radius: 18px;
@@ -67,6 +62,9 @@ color: rgb(255, 0, 195);
 </head>
 <body>
 <h1>All in One Converter</h1>
+
+<h3>Currency-Converter(Premium)</h3>
+
 <form action="">
 
 <!-- selection here  -->
@@ -193,8 +191,17 @@ color: rgb(255, 0, 195);
 
 <script>
 
+// currency converter page
+let btnCC= document.getElementsByTagName("h3");
+console.log(btnCC);
+btnCC[0].addEventListener("click",function(event){
+    event.preventDefault();
+    window.open("http://127.0.0.1:3000/currency-converter.html","_self");
+})
+
+// all in one converter
+
 let length = document.getElementById("length");
-// console.log(length)
 
 let weight = document.getElementById("weight");
 
@@ -277,7 +284,7 @@ let secLength=document.getElementById("secLength").value;
 let secLength2=document.getElementById("secLength2").value;
 let result = document.getElementById("resLength");
 
-
+if(inputLength){
 if(secLength=="KiloMeter"&&secLength2=="Meter"){
     result.innerText=inputLength*1000
 
@@ -287,8 +294,10 @@ if(secLength=="KiloMeter"&&secLength2=="Meter"){
  else {
     result.innerText = "select any one";
 }
-}
-)
+}else {
+result.innerText="please enter value"
+}}
+)   
 
 //  weight functionality
 
@@ -300,7 +309,7 @@ let secWeight=document.getElementById("secWeight").value;
 let secWeight2=document.getElementById("secWeight2").value;
 let resultWeight = document.getElementById("resWeight");
 console.log(inputWeight)
-
+if(inputWeight){
 if(secWeight=="KiloGram"&&secWeight2=="Gram"){
     resultWeight.innerText=inputWeight*1000
 
@@ -310,22 +319,26 @@ if(secWeight=="KiloGram"&&secWeight2=="Gram"){
  else {
     resultWeight.innerText = "select any one";
 }
-}
+}else{
+resultWeight.innerText="please enter value"
+}}
 )
 
 // temparature functionality
 let btnTempu = document.getElementById("btnTempu");
 btnTempu.addEventListener("click",function(event){
 event.preventDefault();
-let inputTempu = document.getElementById("inputTempu").value;
+let inputTemp = document.getElementById("inputTempu").value;
 let secTempu=document.getElementById("secTempu").value;
 let secTempu2=document.getElementById("secTempu2").value;
 let resultTempu = document.getElementById("resTempu");
 
 
+if(inputTemp){
 
 
-inputTempu=Number(inputTempu)
+
+inputTempu=Number(inputTemp)
 
 if(secTempu=="Celsius" && secTempu2=="Kelvin"){
     resultTempu.innerText = inputTempu +273.15
@@ -345,6 +358,8 @@ if(secTempu=="Celsius" && secTempu2=="Kelvin"){
 
 } else {
     resultTempu.innerText = "select any one";
+}}else{
+    resultTempu.innerText="please enter value"
 }
 }
 )
@@ -360,7 +375,7 @@ let secArea=document.getElementById("secArea").value;
 let secArea2=document.getElementById("secArea2").value;
 let resultArea = document.getElementById("resArea");
 
-
+if(inputArea){
 if(secArea=="Squarekilometer" && secArea2=="Squaremeter"){
     resultArea.innerText = inputArea*1000000
 
@@ -370,7 +385,9 @@ if(secArea=="Squarekilometer" && secArea2=="Squaremeter"){
  else {
     resultArea.innerText = "select any one";
 }
-}
+}else{
+    resultArea.innerText="please enter value"
+}}
 )
 
 // time  functionality
@@ -384,7 +401,7 @@ let secTime=document.getElementById("secTime").value;
 let secTime2=document.getElementById("secTime2").value;
 let resultTime = document.getElementById("resTime");
 
-
+if(inputTime){
 if(secTime=="Minites"&&secTime2=="Seconds"){
     resultTime.innerText=inputTime*60
 
@@ -393,14 +410,13 @@ if(secTime=="Minites"&&secTime2=="Seconds"){
 }
  else {
     resultTime.innerText = "select any one";
+}}else{
+    resultTime.innerText="please enter value"
 }
 }
 )
 
-
-
 </script>
 
-<a href="http://127.0.0.1:3003/currency-converter.html">Currency-Converter(Premium)</a>
 </body>
 </html>
